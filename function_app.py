@@ -13,7 +13,7 @@ def ClockPage(req: func.HttpRequest) -> func.HttpResponse:
     <head>
         <meta charset="UTF-8">
         <title>デジタル時計</title>
-        <style>
+   <style>
             body {
                 margin: 0;
                 height: 100vh;
@@ -24,15 +24,16 @@ def ClockPage(req: func.HttpRequest) -> func.HttpResponse:
                 font-family: 'Courier New', monospace;
             }
             #clock {
-                font-size: 6vw;
+                font-size: clamp(2.5rem, 10vw, 6rem);
                 color: #00ffcc;
                 letter-spacing: 0.05em;
                 text-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
+                text-align: center;
             }
             #date {
                 text-align: center;
                 color: #888;
-                font-size: 1.2vw;
+                font-size: clamp(1rem, 4vw, 1.5rem);
                 margin-top: 10px;
             }
         </style>
@@ -62,3 +63,5 @@ def ClockPage(req: func.HttpRequest) -> func.HttpResponse:
     """
 
     return func.HttpResponse(html_content, mimetype="text/html")
+
+    
